@@ -1,8 +1,20 @@
 # FarsiFix downloads
 
+![FarsiFix release artwork](artwork/farsifix-release-hero-v1.png)
+
 This repository contains official public downloads and installation guidance for FarsiFix. The application source is maintained separately in a private repository and is not published here.
 
 FarsiFix is an offline macOS utility that prepares editable Persian compatibility text for applications with deficient right-to-left layout, with Affinity Designer as its first validation target. It can also create transparent Persian title artwork using local fonts.
+
+## Screenshots
+
+### Editable compatibility text
+
+![FarsiFix editable compatibility mode](screenshots/farsifix-editable-mode.png)
+
+### Transparent-image title designer
+
+![FarsiFix transparent-image title designer](screenshots/farsifix-transparent-image-mode.png)
 
 ## Download the macOS beta
 
@@ -39,3 +51,14 @@ FarsiFix has no backend, account, analytics, or network-dependent conversion. In
 ## Important Affinity limitation
 
 Each prepared visual-order line must fit inside the Affinity text frame without wrapping again. If Affinity moves a fragment to the bottom of the text, return to FarsiFix, choose a shorter line length, and copy again.
+
+## Artwork
+
+Public product artwork is available in the [`artwork`](artwork) directory:
+
+- Application icon in SVG and PNG formats
+- Release hero artwork
+- Repository social-preview artwork
+- macOS DMG background and its high-resolution source
+
+The core mark is the cream Persian `ف` on an emerald rounded square. Do not redraw, rotate, stretch, or place other marks inside the icon.
