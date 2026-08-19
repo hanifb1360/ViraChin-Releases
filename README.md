@@ -4,6 +4,8 @@
 
 This repository contains the official public downloads and installation guidance for ViraChin. The application source is maintained separately in a private repository and is not published here.
 
+Visit the [ViraChin website](https://hanifb1360.github.io/ViraChin-Releases/) for the product overview, screenshots, and download guidance.
+
 ViraChin is an offline macOS utility that prepares editable Persian compatibility text for applications with deficient right-to-left layout, with Affinity Designer as its first validation target. It can also create transparent Persian title artwork using local fonts.
 
 ## Screenshots
