@@ -21,7 +21,8 @@ img { max-width: 100%; display: block; }
 .skip-link { position: fixed; top: 1rem; left: 1rem; z-index: 20; padding: .7rem 1rem; background: var(--cream); color: #0c1512; transform: translateY(-200%); }
 .skip-link:focus { transform: none; }
 
-.site-header { position: absolute; inset: 0 0 auto; z-index: 10; max-width: 1440px; margin: auto; padding: 1.5rem clamp(1.25rem, 5vw, 5rem); display: flex; align-items: center; justify-content: space-between; }
+.site-header { position: fixed; inset: 0 0 auto; z-index: 10; width: 100%; max-width: 1440px; margin: auto; padding: 1.5rem clamp(1.25rem, 5vw, 5rem); display: flex; align-items: center; justify-content: space-between; transition: padding .35s ease, background-color .35s ease, border-color .35s ease, box-shadow .35s ease; border-bottom: 1px solid transparent; }
+.site-header.is-scrolled { padding-block: .8rem; background: rgba(8, 15, 12, .82); border-bottom-color: var(--line); box-shadow: 0 14px 36px rgba(0,0,0,.18); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }
 .brand { display: inline-flex; align-items: center; gap: .8rem; font-size: 1.15rem; font-weight: 760; text-decoration: none; letter-spacing: -.02em; }
 .brand img { border-radius: 12px; }
 nav { display: flex; align-items: center; gap: 1.6rem; }
@@ -30,9 +31,11 @@ nav a:hover, nav a:focus-visible { color: white; }
 .nav-download { padding: .55rem .9rem; border: 1px solid rgba(255,255,255,.24); border-radius: 99px; }
 
 .hero { position: relative; min-height: 830px; display: grid; align-items: center; overflow: hidden; border-bottom: 1px solid var(--line); }
-.hero-art { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(8,14,12,.12), rgba(8,14,12,.72) 53%, rgba(8,14,12,.98) 82%), url("assets/virachin-hero.png") 32% center / cover no-repeat; }
+.hero-art { position: absolute; inset: -4%; background: linear-gradient(90deg, rgba(8,14,12,.12), rgba(8,14,12,.72) 53%, rgba(8,14,12,.98) 82%), url("assets/virachin-hero.png") 32% center / cover no-repeat; transform: translate3d(0, var(--hero-shift, 0px), 0) scale(1.04); will-change: transform; }
+.hero-glow { position: absolute; z-index: 1; width: 46rem; height: 46rem; right: -18rem; top: 6rem; border-radius: 50%; background: rgba(28, 118, 91, .12); filter: blur(80px); pointer-events: none; animation: glow-breathe 9s ease-in-out infinite alternate; }
 .hero::after { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 78% 42%, rgba(24,112,87,.16), transparent 32%); pointer-events: none; }
 .hero-copy { position: relative; z-index: 2; width: min(680px, calc(100% - 2.5rem)); margin-left: max(50%, calc((100% - 1380px)/2 + 680px)); padding: 9rem 3rem 5rem; }
+.hero-copy::before { content: ""; display: block; width: 0; height: 1px; margin-bottom: 1.5rem; background: linear-gradient(90deg, var(--emerald-light), transparent); animation: hero-line 1.1s .15s cubic-bezier(.2,.8,.2,1) forwards; }
 .eyebrow { margin: 0 0 1rem; color: var(--emerald-light); font-size: .76rem; font-weight: 750; letter-spacing: .17em; text-transform: uppercase; }
 h1, h2, h3, p { margin-top: 0; }
 h1 { margin-bottom: 1.7rem; font-size: clamp(3.5rem, 6.3vw, 6.6rem); line-height: .94; letter-spacing: -.065em; }
@@ -40,10 +43,11 @@ h1 span { color: #a8aea9; }
 .lede { max-width: 620px; color: #c1c6c1; font-size: 1.12rem; }
 .persian { margin-top: 1.3rem; font-family: Tahoma, "Geeza Pro", sans-serif; line-height: 1.9; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
-.button { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; padding: .7rem 1.15rem; border-radius: 8px; font-weight: 720; text-decoration: none; transition: transform .18s ease, background .18s ease; }
+.button { position: relative; overflow: hidden; display: inline-flex; min-height: 48px; align-items: center; justify-content: center; padding: .7rem 1.15rem; border-radius: 8px; font-weight: 720; text-decoration: none; transition: transform .22s ease, background .22s ease, box-shadow .22s ease; }
 .button:hover { transform: translateY(-2px); }
+.button:focus-visible, a:focus-visible { outline: 3px solid var(--cream); outline-offset: 4px; }
 .primary { color: white; background: var(--emerald); }
-.primary:hover { background: #238168; }
+.primary:hover { background: #238168; box-shadow: 0 12px 30px rgba(19,105,81,.26); }
 .secondary { border: 1px solid var(--line); background: rgba(255,255,255,.04); }
 .release-note { margin-top: 1.1rem; color: #7f8883; font-size: .78rem; }
 
@@ -66,7 +70,8 @@ h1 span { color: #a8aea9; }
 
 .features { background: var(--panel); }
 .feature-grid { display: grid; grid-template-columns: repeat(2, 1fr); border: 1px solid var(--line); }
-.feature-grid article { min-height: 420px; padding: clamp(2rem, 5vw, 4.5rem); }
+.feature-grid article { min-height: 420px; padding: clamp(2rem, 5vw, 4.5rem); transition: background-color .35s ease, transform .35s cubic-bezier(.2,.8,.2,1); }
+.feature-grid article:hover { background: rgba(255,255,255,.025); transform: translateY(-4px); }
 .feature-grid article + article { border-left: 1px solid var(--line); }
 .feature-grid h3 { margin: 4rem 0 1rem; font-size: 1.8rem; letter-spacing: -.025em; }
 .feature-grid ul { margin: 2rem 0 0; padding: 1.5rem 0 0; border-top: 1px solid var(--line); list-style: none; }
@@ -76,7 +81,8 @@ h1 span { color: #a8aea9; }
 .compact { margin-bottom: 3rem; }
 .screen { margin: 0 0 5rem; }
 .screen:last-child { margin-bottom: 0; }
-.screen img { width: 100%; border: 1px solid var(--line); border-radius: 20px; background: #050706; box-shadow: 0 40px 100px rgba(0,0,0,.32); }
+.screen img { width: 100%; border: 1px solid var(--line); border-radius: 20px; background: #050706; box-shadow: 0 40px 100px rgba(0,0,0,.32); transition: transform .55s cubic-bezier(.2,.8,.2,1), border-color .4s ease, box-shadow .55s ease; }
+.screen:hover img { transform: translateY(-6px) scale(1.006); border-color: rgba(115,179,156,.35); box-shadow: 0 52px 120px rgba(0,0,0,.42); }
 .screen figcaption { display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; padding: 1.4rem .5rem 0; color: var(--muted); font-size: .88rem; }
 .screen figcaption strong { color: var(--ink); }
 
@@ -103,6 +109,14 @@ footer { max-width: 1380px; margin: 0 auto; padding: 2.5rem clamp(1.25rem, 5vw, 
 footer p { margin: 0; text-align: center; color: var(--muted); font-size: .84rem; }
 footer > div { display: flex; justify-content: flex-end; gap: 1.2rem; }
 footer > div a { color: var(--muted); font-size: .8rem; }
+
+/* Content stays visible by default. JavaScript adds these classes only when
+   the observer is available, so a script failure can never hide the page. */
+.motion-ready .reveal-item { opacity: 0; transform: translate3d(0, 24px, 0); transition: opacity .72s ease var(--reveal-delay, 0ms), transform .82s cubic-bezier(.2,.75,.2,1) var(--reveal-delay, 0ms); }
+.motion-ready .reveal-item.is-visible { opacity: 1; transform: translate3d(0, 0, 0); }
+
+@keyframes hero-line { to { width: 6.5rem; } }
+@keyframes glow-breathe { from { opacity: .55; transform: translate3d(-1rem, -1rem, 0) scale(.92); } to { opacity: 1; transform: translate3d(1rem, 1rem, 0) scale(1.08); } }
 
 @media (max-width: 900px) {
   nav > a:not(.nav-download) { display: none; }
@@ -132,5 +146,7 @@ footer > div a { color: var(--muted); font-size: .8rem; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .button { transition: none; }
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .001ms !important; }
+  .motion-ready .reveal-item { opacity: 1; transform: none; }
+  .hero-art { transform: scale(1.04); }
 }
