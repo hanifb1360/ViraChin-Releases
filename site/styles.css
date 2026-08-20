@@ -180,7 +180,12 @@ h1 span { color: #a8aea9; }
 
 .persian-summary { background: var(--cream); color: #15201c; font-family: Tahoma, "Geeza Pro", sans-serif; }
 .persian-summary .eyebrow { color: #39735f; }
-.persian-summary h2 { margin-bottom: 2rem; }
+.persian-summary h2 {
+  margin-bottom: 1.7rem;
+  padding-block: .12em .22em;
+  line-height: 1.22;
+  letter-spacing: -.035em;
+}
 .persian-signal { position: relative; height: 1px; margin: 0 0 2.5rem; background: rgba(19,38,31,.15); }
 .persian-signal > i { position: absolute; inset: 0; background: linear-gradient(270deg, #39735f, rgba(57,115,95,.12)); transform-origin: right; }
 .persian-signal > b { position: absolute; top: -4px; width: 9px; height: 9px; margin-right: -4px; border: 1px solid #39735f; border-radius: 50%; background: var(--cream); }
@@ -241,7 +246,7 @@ footer > div a { color: var(--muted); font-size: .8rem; }
 .motion-ready .sequence-ready.install .safe-progress em { opacity: 0; }
 .motion-ready .sequence-ready.install.is-animated .safe-progress > span i { animation: safe-fill .85s .28s ease-out forwards; }
 .motion-ready .sequence-ready.install.is-animated .safe-progress em { animation: safe-label .35s 1s ease-out forwards; }
-.motion-ready .sequence-ready.persian-summary h2 { clip-path: inset(0 0 0 100%); }
+.motion-ready .sequence-ready.persian-summary h2 { clip-path: inset(-.25em 0 -.3em 100%); }
 .motion-ready .sequence-ready.persian-summary .persian-signal > i { transform: scaleX(0); }
 .motion-ready .sequence-ready.persian-summary .persian-grid article { opacity: .22; transform: translateY(8px); }
 .motion-ready .sequence-ready.persian-summary .privacy-visual > *, .motion-ready .sequence-ready.persian-summary .letters-visual i { opacity: 0; transform: scale(.55); }
@@ -270,7 +275,7 @@ footer > div a { color: var(--muted); font-size: .8rem; }
 @keyframes screen-uncover { to { clip-path: inset(0); filter: saturate(1) brightness(1); } }
 @keyframes safe-fill { to { transform: scaleX(1); } }
 @keyframes safe-label { to { opacity: 1; } }
-@keyframes persian-heading { to { clip-path: inset(0); } }
+@keyframes persian-heading { to { clip-path: inset(-.25em 0 -.3em 0); } }
 @keyframes persian-flow { to { transform: scaleX(1); } }
 @keyframes persian-card-in { to { opacity: 1; transform: translateY(0); } }
 @keyframes persian-ring { to { opacity: 1; transform: scale(1); } }
