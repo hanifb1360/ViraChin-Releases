@@ -68,6 +68,28 @@ h1 span { color: #a8aea9; }
 .steps h3 { margin-bottom: .35rem; }
 .steps p, .features article > p, .install p { margin-bottom: 0; color: var(--muted); font-size: .92rem; }
 
+.scroll-story { padding-bottom: clamp(4rem, 8vw, 8rem); background: linear-gradient(180deg, #0a0f0d, #0e1714); }
+.story-intro { max-width: 880px; margin-bottom: clamp(3rem, 7vw, 6rem); }
+.story-intro h2 { margin: 0; font-size: clamp(2.8rem, 5.5vw, 5.4rem); line-height: .98; letter-spacing: -.055em; }
+.story-layout { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(260px, .65fr); gap: clamp(2.5rem, 7vw, 7rem); align-items: start; }
+.story-stage-wrap { position: sticky; top: 7.5rem; height: calc(100vh - 9.5rem); min-height: 520px; display: grid; align-items: center; }
+.story-stage { position: relative; width: 100%; aspect-ratio: 1.22 / 1; overflow: hidden; border: 1px solid rgba(255,255,255,.16); border-radius: 24px; background: #080c0a; box-shadow: 0 50px 120px rgba(0,0,0,.42); }
+.story-stage::after { content: ""; position: absolute; inset: 0; z-index: 2; border-radius: inherit; box-shadow: inset 0 0 0 1px rgba(255,255,255,.04); pointer-events: none; }
+.story-scene { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top center; opacity: 0; transform: scale(1.012); transition: opacity .46s ease-out, transform .65s cubic-bezier(.2,.75,.2,1); }
+.story-scene.is-active { opacity: 1; transform: scale(1); }
+.story-caption { position: absolute; z-index: 3; inset: auto 1rem 1rem; min-height: 48px; display: flex; align-items: center; justify-content: space-between; padding: .75rem 1rem; border: 1px solid rgba(255,255,255,.13); border-radius: 12px; background: rgba(8,14,12,.78); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+.story-caption-text { display: none; font-size: .82rem; font-weight: 700; }
+.story-caption-text.is-active { display: block; }
+.story-dots { display: flex; gap: .42rem; }
+.story-dots i { width: 18px; height: 3px; border-radius: 99px; background: rgba(255,255,255,.25); transition: width .3s ease, background-color .3s ease; }
+.story-dots i.is-active { width: 34px; background: var(--emerald-light); }
+.story-step { min-height: 72vh; display: flex; flex-direction: column; justify-content: center; opacity: .32; transition: opacity .36s ease; }
+.story-step.is-active { opacity: 1; }
+.story-step > span { color: var(--gold); font: 700 .75rem/1 ui-monospace, monospace; }
+.story-step h3 { margin: 1.5rem 0 1rem; font-size: clamp(2rem, 3.2vw, 3.3rem); line-height: 1.03; letter-spacing: -.045em; }
+.story-step p { color: var(--muted); font-size: .96rem; }
+.story-mobile-image { display: none; }
+
 .features { background: var(--panel); }
 .feature-grid { display: grid; grid-template-columns: repeat(2, 1fr); border: 1px solid var(--line); }
 .feature-grid article { min-height: 420px; padding: clamp(2rem, 5vw, 4.5rem); transition: background-color .35s ease, transform .35s cubic-bezier(.2,.8,.2,1); }
@@ -126,6 +148,11 @@ footer > div a { color: var(--muted); font-size: .8rem; }
   .trust-strip div, .steps li { border-right: 0; border-bottom: 1px solid var(--line); }
   .trust-strip div:last-child, .steps li:last-child { border-bottom: 0; }
   .section-heading, .install { grid-template-columns: 1fr; }
+  .story-layout { grid-template-columns: 1fr; }
+  .story-stage-wrap { display: none; }
+  .story-steps { display: grid; gap: 3.5rem; }
+  .story-step { min-height: auto; opacity: 1; }
+  .story-mobile-image { display: block; margin-top: 1.5rem; border: 1px solid var(--line); border-radius: 16px; background: #050706; }
   .feature-grid article + article { border-left: 0; border-top: 1px solid var(--line); }
   .screen figcaption { grid-template-columns: 1fr; gap: .25rem; }
   footer { grid-template-columns: 1fr; gap: 1.25rem; text-align: center; }
@@ -147,4 +174,5 @@ footer > div a { color: var(--muted); font-size: .8rem; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .001ms !important; }
   .motion-ready .reveal-item { opacity: 1; }
+  .story-scene, .story-step, .story-dots i { transition: none; }
 }

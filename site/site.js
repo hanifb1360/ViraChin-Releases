@@ -50,9 +50,33 @@
 
   revealItems.forEach((element) => observer.observe(element));
 
+  const storySteps = [...document.querySelectorAll("[data-story-step]")];
+  const storyScenes = [...document.querySelectorAll("[data-story-scene]")];
+  const storyCaptions = [...document.querySelectorAll("[data-story-caption]")];
+  const storyDots = [...document.querySelectorAll(".story-dots i")];
+
+  const showStoryScene = (name) => {
+    storySteps.forEach((step) => step.classList.toggle("is-active", step.dataset.storyStep === name));
+    storyScenes.forEach((scene) => scene.classList.toggle("is-active", scene.dataset.storyScene === name));
+    storyCaptions.forEach((caption) => caption.classList.toggle("is-active", caption.dataset.storyCaption === name));
+    storyDots.forEach((dot, index) => dot.classList.toggle("is-active", storySteps[index]?.dataset.storyStep === name));
+  };
+
+  const storyObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) showStoryScene(entry.target.dataset.storyStep);
+      });
+    },
+    { rootMargin: "-42% 0px -42%", threshold: 0 },
+  );
+
+  storySteps.forEach((step) => storyObserver.observe(step));
+
   reduceMotion.addEventListener("change", (event) => {
     if (!event.matches) return;
     observer.disconnect();
+    storyObserver.disconnect();
     revealItems.forEach((element) => element.classList.add("is-visible"));
   });
 })();
