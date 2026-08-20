@@ -50,6 +50,21 @@
 
   revealItems.forEach((element) => observer.observe(element));
 
+  const textJourney = document.querySelector(".text-journey");
+  const journeyHasRoom = window.matchMedia("(min-width: 901px)");
+  if (textJourney && journeyHasRoom.matches) {
+    textJourney.classList.add("is-ready");
+    const journeyObserver = new IntersectionObserver(
+      (entries) => {
+        if (!entries.some((entry) => entry.isIntersecting)) return;
+        textJourney.classList.add("is-animated");
+        journeyObserver.disconnect();
+      },
+      { rootMargin: "0px 0px -18%", threshold: 0.3 },
+    );
+    journeyObserver.observe(textJourney);
+  }
+
   const storySteps = [...document.querySelectorAll("[data-story-step]")];
   const storyScenes = [...document.querySelectorAll("[data-story-scene]")];
   const storyCaptions = [...document.querySelectorAll("[data-story-caption]")];
