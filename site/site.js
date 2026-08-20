@@ -37,6 +37,26 @@
 
   document.documentElement.classList.add("motion-ready");
 
+  const hero = document.querySelector(".hero");
+  hero?.classList.add("sequence-ready");
+  window.requestAnimationFrame(() => window.requestAnimationFrame(() => hero?.classList.add("is-animated")));
+
+  const sequenceItems = [...document.querySelectorAll(".trust-strip, .features, .install, .persian-summary")];
+  sequenceItems.forEach((section) => section.classList.add("sequence-ready"));
+
+  const sequenceObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-animated");
+        sequenceObserver.unobserve(entry.target);
+      });
+    },
+    { rootMargin: "0px 0px -15%", threshold: 0.16 },
+  );
+
+  sequenceItems.forEach((section) => sequenceObserver.observe(section));
+
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -92,6 +112,9 @@
     if (!event.matches) return;
     observer.disconnect();
     storyObserver.disconnect();
+    sequenceObserver.disconnect();
+    hero?.classList.add("is-animated");
+    sequenceItems.forEach((section) => section.classList.add("is-animated"));
     revealItems.forEach((element) => element.classList.add("is-visible"));
   });
 })();

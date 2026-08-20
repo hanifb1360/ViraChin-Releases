@@ -53,6 +53,8 @@ h1 span { color: #a8aea9; }
 
 .trust-strip { max-width: 1380px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); border-inline: 1px solid var(--line); }
 .trust-strip div { padding: 1.6rem 2rem; border-right: 1px solid var(--line); }
+.trust-strip div { position: relative; overflow: hidden; }
+.trust-strip div::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: linear-gradient(90deg, var(--emerald-light), transparent); transform-origin: left; }
 .trust-strip div:last-child { border-right: 0; }
 .trust-strip strong, .trust-strip span { display: block; }
 .trust-strip strong { font-size: .95rem; }
@@ -144,6 +146,15 @@ h1 span { color: #a8aea9; }
 .feature-grid ul { margin: 2rem 0 0; padding: 1.5rem 0 0; border-top: 1px solid var(--line); list-style: none; }
 .feature-grid li { padding: .55rem 0 .55rem 1.25rem; color: #c9ceca; font-size: .88rem; position: relative; }
 .feature-grid li::before { content: ""; position: absolute; left: 0; top: 1.15rem; width: 5px; height: 5px; border-radius: 50%; background: var(--emerald-light); }
+.mode-demo { height: 98px; margin: 1.7rem 0 -.25rem; padding: 1rem; border: 1px solid var(--line); border-radius: 12px; background: rgba(4,9,7,.28); }
+.editable-demo { position: relative; display: grid; align-content: center; gap: .55rem; padding-right: 4.5rem; }
+.editable-demo > div { display: grid; grid-template-columns: minmax(40px, 1fr) minmax(30px, .45fr); gap: .45rem; direction: rtl; }
+.editable-demo > div span, .editable-demo > div i { display: block; height: 4px; border-radius: 99px; background: rgba(255,255,255,.15); transform-origin: right; }
+.editable-demo > div span { background: rgba(115,179,156,.58); }
+.editable-demo > b { position: absolute; right: 1rem; top: 1rem; bottom: 1rem; width: 2.3rem; border: 1px solid rgba(255,255,255,.13); border-radius: 99px; }
+.editable-demo > b i { position: absolute; left: 50%; top: 52%; width: 14px; height: 14px; margin: -7px; border-radius: 50%; background: var(--cream); box-shadow: 0 0 0 4px rgba(115,179,156,.18); }
+.title-demo { display: flex; align-items: center; justify-content: center; gap: .04em; color: var(--cream); font: 700 clamp(1.8rem, 3vw, 2.7rem)/1 Tahoma, "Geeza Pro", sans-serif; }
+.title-demo span { display: inline-block; }
 
 .compact { margin-bottom: 3rem; }
 .screen { margin: 0 0 5rem; }
@@ -162,6 +173,10 @@ h1 span { color: #a8aea9; }
 .download-card strong, .download-card span { display: block; }
 .download-card strong { font-size: 1.25rem; }
 .download-card span, .download-card small { color: var(--muted); }
+.safe-progress { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: .8rem; }
+.safe-progress > span { height: 3px; overflow: hidden; border-radius: 99px; background: rgba(255,255,255,.12); }
+.safe-progress > span i { display: block; width: 100%; height: 100%; background: linear-gradient(90deg, var(--emerald-light), var(--gold)); transform-origin: left; }
+.safe-progress em { color: var(--emerald-light); font: 700 .68rem/1 ui-monospace, monospace; font-style: normal; white-space: nowrap; }
 
 .persian-summary { background: var(--cream); color: #15201c; font-family: Tahoma, "Geeza Pro", sans-serif; }
 .persian-summary .eyebrow { color: #39735f; }
@@ -181,6 +196,51 @@ footer > div a { color: var(--muted); font-size: .8rem; }
    the observer is available, so a script failure can never hide the page. */
 .motion-ready .reveal-item { opacity: 0; transition: opacity .38s ease-out var(--reveal-delay, 0ms); }
 .motion-ready .reveal-item.is-visible { opacity: 1; }
+
+.motion-ready .sequence-ready.hero .hero-art { filter: saturate(.55) brightness(.72); }
+.motion-ready .sequence-ready.hero .hero-copy > * { opacity: 0; transform: translateY(10px); }
+.motion-ready .sequence-ready.hero.is-animated .hero-art { animation: hero-develop .95s ease-out forwards; }
+.motion-ready .sequence-ready.hero.is-animated .hero-copy > * { animation: hero-copy-in .55s ease-out forwards; }
+.motion-ready .sequence-ready.hero.is-animated .hero-copy > *:nth-child(2) { animation-delay: .08s; }
+.motion-ready .sequence-ready.hero.is-animated .hero-copy > *:nth-child(3) { animation-delay: .16s; }
+.motion-ready .sequence-ready.hero.is-animated .hero-copy > *:nth-child(4) { animation-delay: .24s; }
+.motion-ready .sequence-ready.hero.is-animated .hero-copy > *:nth-child(5) { animation-delay: .32s; }
+.motion-ready .sequence-ready.hero.is-animated .hero-copy > *:nth-child(6) { animation-delay: .4s; }
+.motion-ready .sequence-ready.hero.is-animated .hero-copy > *:nth-child(7) { animation-delay: .48s; }
+.motion-ready .sequence-ready.trust-strip > div::after { transform: scaleX(0); }
+.motion-ready .sequence-ready.trust-strip.is-animated > div::after { animation: principle-line .65s ease-out forwards; }
+.motion-ready .sequence-ready.trust-strip.is-animated > div:nth-child(2)::after { animation-delay: .12s; }
+.motion-ready .sequence-ready.trust-strip.is-animated > div:nth-child(3)::after { animation-delay: .24s; }
+.motion-ready .sequence-ready.features .editable-demo > div span, .motion-ready .sequence-ready.features .editable-demo > div i { transform: scaleX(.08); }
+.motion-ready .sequence-ready.features .editable-demo > b i { transform: translateY(18px) scale(.7); opacity: 0; }
+.motion-ready .sequence-ready.features .title-demo span { opacity: 0; transform: translateY(9px) rotate(-3deg); }
+.motion-ready .sequence-ready.features .title-demo span:nth-child(even) { transform: translateY(9px) rotate(3deg); }
+.motion-ready .sequence-ready.features.is-animated .editable-demo > div span, .motion-ready .sequence-ready.features.is-animated .editable-demo > div i { animation: demo-line .48s ease-out forwards; }
+.motion-ready .sequence-ready.features.is-animated .editable-demo > div:nth-child(2) span, .motion-ready .sequence-ready.features.is-animated .editable-demo > div:nth-child(2) i { animation-delay: .12s; }
+.motion-ready .sequence-ready.features.is-animated .editable-demo > div:nth-child(3) span, .motion-ready .sequence-ready.features.is-animated .editable-demo > div:nth-child(3) i { animation-delay: .24s; }
+.motion-ready .sequence-ready.features.is-animated .editable-demo > b i { animation: demo-control .5s .38s cubic-bezier(.2,.8,.2,1) forwards; }
+.motion-ready .sequence-ready.features.is-animated .title-demo span { animation: demo-letter .38s calc(.12s + var(--letter) * 65ms) ease-out forwards; }
+.motion-ready .screen.reveal-item img { clip-path: inset(8% 0 0); filter: saturate(.55) brightness(.72); }
+.motion-ready .screen.reveal-item.is-visible img { animation: screen-uncover .72s .08s ease-out forwards; }
+.motion-ready .sequence-ready.install .safe-progress > span i { transform: scaleX(0); }
+.motion-ready .sequence-ready.install .safe-progress em { opacity: 0; }
+.motion-ready .sequence-ready.install.is-animated .safe-progress > span i { animation: safe-fill .85s .28s ease-out forwards; }
+.motion-ready .sequence-ready.install.is-animated .safe-progress em { animation: safe-label .35s 1s ease-out forwards; }
+.motion-ready .sequence-ready.persian-summary .persian-grid p { box-shadow: inset 0 -2px transparent; }
+.motion-ready .sequence-ready.persian-summary.is-animated .persian-grid p { animation: persian-accent .65s ease-out forwards; }
+.motion-ready .sequence-ready.persian-summary.is-animated .persian-grid p:nth-child(2) { animation-delay: .12s; }
+.motion-ready .sequence-ready.persian-summary.is-animated .persian-grid p:nth-child(3) { animation-delay: .24s; }
+
+@keyframes hero-develop { to { filter: saturate(1) brightness(1); } }
+@keyframes hero-copy-in { to { opacity: 1; transform: translateY(0); } }
+@keyframes principle-line { to { transform: scaleX(1); } }
+@keyframes demo-line { to { transform: scaleX(1); } }
+@keyframes demo-control { to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes demo-letter { to { opacity: 1; transform: translateY(0) rotate(0); } }
+@keyframes screen-uncover { to { clip-path: inset(0); filter: saturate(1) brightness(1); } }
+@keyframes safe-fill { to { transform: scaleX(1); } }
+@keyframes safe-label { to { opacity: 1; } }
+@keyframes persian-accent { to { box-shadow: inset 0 -2px rgba(57,115,95,.48); } }
 
 @keyframes hero-line { to { width: 6.5rem; } }
 
@@ -227,4 +287,9 @@ footer > div a { color: var(--muted); font-size: .8rem; }
   .motion-ready .text-journey.is-ready .journey-path > i { transform: scaleX(1); }
   .motion-ready .text-journey.is-ready .journey-scene, .motion-ready .text-journey.is-ready .journey-caret, .motion-ready .text-journey.is-ready .journey-prepare p i, .motion-ready .text-journey.is-ready .journey-frame { opacity: 1; transform: none; }
   .motion-ready .text-journey.is-ready .journey-write p { clip-path: none; }
+  .motion-ready .sequence-ready.hero .hero-art { filter: none; }
+  .motion-ready .sequence-ready.hero .hero-copy > *, .motion-ready .sequence-ready.features .title-demo span, .motion-ready .sequence-ready.install .safe-progress em { opacity: 1; transform: none; }
+  .motion-ready .sequence-ready.trust-strip > div::after, .motion-ready .sequence-ready.features .editable-demo > div span, .motion-ready .sequence-ready.features .editable-demo > div i, .motion-ready .sequence-ready.install .safe-progress > span i { transform: none; }
+  .motion-ready .sequence-ready.features .editable-demo > b i { opacity: 1; transform: none; }
+  .motion-ready .screen.reveal-item img { clip-path: none; filter: none; }
 }

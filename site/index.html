@@ -11,8 +11,8 @@
     <meta property="og:type" content="website" />
     <title>ViraChin — Persian text, arranged for design</title>
     <link rel="icon" type="image/png" href="assets/virachin-icon.png" />
-    <link rel="stylesheet" href="styles.css?v=20260820-4" />
-    <script src="site.js?v=20260820-4" defer></script>
+    <link rel="stylesheet" href="styles.css?v=20260820-5" />
+    <script src="site.js?v=20260820-5" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -128,6 +128,10 @@
             <p class="feature-number">01</p>
             <h3>Editable compatibility text</h3>
             <p>Prepare Persian text for left-to-right renderers while preserving meaningful Unicode details such as ZWNJ.</p>
+            <div class="mode-demo editable-demo" aria-hidden="true">
+              <div><span></span><i></i></div><div><span></span><i></i></div><div><span></span><i></i></div>
+              <b><i></i></b>
+            </div>
             <ul>
               <li>Adjustable line length for Affinity text frames</li>
               <li>Instant conversion and codepoint inspection</li>
@@ -138,6 +142,9 @@
             <p class="feature-number">02</p>
             <h3>Transparent title artwork</h3>
             <p>Use any local TTF or OTF font to create distinctive Persian titles with a transparent background.</p>
+            <div class="mode-demo title-demo" aria-hidden="true" lang="fa" dir="rtl">
+              <span style="--letter: 0">و</span><span style="--letter: 1">ی</span><span style="--letter: 2">ر</span><span style="--letter: 3">ا</span><span style="--letter: 4">چ</span><span style="--letter: 5">ی</span><span style="--letter: 6">ن</span>
+            </div>
             <ul>
               <li>Direct word and letter selection</li>
               <li>Precise spacing, scale, rotation, and position</li>
@@ -173,6 +180,7 @@
           <img src="assets/virachin-icon.png" width="88" height="88" alt="ViraChin app icon" />
           <div><strong>ViraChin for macOS</strong><span>Version 0.1.0 beta · Historical FarsiFix build</span></div>
           <a class="button primary" href="https://github.com/hanifb1360/ViraChin-Releases/releases/tag/v0.1.0-beta">View download</a>
+          <div class="safe-progress" aria-hidden="true"><span><i></i></span><em>Checksum ready</em></div>
           <small>Always verify the included SHA-256 checksum before installation.</small>
         </div>
       </section>
