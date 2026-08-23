@@ -6,7 +6,7 @@ This repository contains the official public downloads and installation guidance
 
 Visit the [ViraChin website](https://hanifb1360.github.io/ViraChin-Releases/) for the product overview, screenshots, and download guidance.
 
-ViraChin is an offline macOS utility that prepares editable Persian compatibility text for applications with deficient right-to-left layout, with Affinity Designer as its first validation target. It can also create transparent Persian title artwork using local fonts.
+ViraChin is an offline macOS and Windows utility that prepares editable Persian compatibility text for applications with deficient right-to-left layout, with Affinity Designer as its first validation target. It can also create transparent Persian title artwork using local fonts.
 
 ## Screenshots
 
@@ -18,23 +18,45 @@ ViraChin is an offline macOS utility that prepares editable Persian compatibilit
 
 ![ViraChin transparent-image title designer](screenshots/virachin-transparent-image-mode.png)
 
-## Download the macOS beta
+## Download the beta
 
-The currently published [0.1.0 Beta](https://github.com/hanifb1360/ViraChin-Releases/releases/tag/v0.1.0-beta) is a historical build released under the previous **FarsiFix** name. Future releases will use the ViraChin name.
+Download [ViraChin 0.2.0 Beta](https://github.com/hanifb1360/ViraChin-Releases/releases/tag/v0.2.0-beta) for:
 
-This free beta is ad-hoc signed but **not notarized by Apple**. macOS will identify its developer as unverified and block the first normal launch.
+- macOS: universal build for Apple silicon and Intel
+- Windows: 64-bit NSIS installer
 
-## Verify the historical beta download
+The older [0.1.0 Beta](https://github.com/hanifb1360/ViraChin-Releases/releases/tag/v0.1.0-beta) remains available as a historical build carrying the former **FarsiFix** name.
+
+## Verify the download
+
+Download the installer and its matching `.sha256` file from the same release.
+
+### macOS
 
 Put the DMG and checksum in the same folder, open Terminal in that folder, and run:
 
 ```sh
-shasum -a 256 -c FarsiFix_0.1.0_universal.dmg.sha256
+shasum -a 256 -c ViraChin_0.2.0_universal.dmg.sha256
 ```
 
-The result must say `FarsiFix_0.1.0_universal.dmg: OK`.
+The result must say `ViraChin_0.2.0_universal.dmg: OK`.
 
-## Install and open it
+### Windows
+
+Open PowerShell in the download folder and run:
+
+```powershell
+(Get-FileHash .\ViraChin_0.2.0_x64-setup.exe -Algorithm SHA256).Hash.ToLowerInvariant()
+Get-Content .\ViraChin_0.2.0_x64-setup.exe.sha256
+```
+
+The two 64-character hashes must be identical. Stop if they differ.
+
+## Safe installation
+
+### macOS
+
+The free beta is ad-hoc signed but **not notarized by Apple**. macOS will identify its developer as unverified and block the first normal launch.
 
 1. Open the DMG and drag the app into Applications.
 2. In Applications, try to open it once. macOS will block this first attempt.
@@ -45,6 +67,18 @@ The result must say `FarsiFix_0.1.0_universal.dmg: OK`.
 Apple documents this process in [Open a Mac app from an unidentified developer](https://support.apple.com/en-gb/102445). Managed work or school Macs may prevent this exception.
 
 Do not disable Gatekeeper globally and do not use Terminal commands that remove quarantine protection.
+
+### Windows
+
+The Windows beta is currently **unsigned**. Microsoft Defender SmartScreen may show **Windows protected your PC** because the app does not yet have publisher reputation.
+
+1. Verify the checksum as described above.
+2. Right-click the installer and select **Scan with Microsoft Defender**.
+3. Open the installer. If SmartScreen blocks it, select **More info** and confirm the application is ViraChin and the publisher is unknown.
+4. Select **Run anyway** only after the checksum matches and Defender reports no threat.
+5. Complete the current-user installation; administrator access is not required.
+
+Do not disable SmartScreen, Microsoft Defender, Smart App Control, or other Windows protections. Managed work or school computers may prohibit unsigned applications.
 
 ## Privacy
 
