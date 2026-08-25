@@ -20,10 +20,12 @@ ViraChin is an offline macOS and Windows utility that prepares editable Persian 
 
 ## Download the beta
 
-Download [ViraChin 0.2.0 Beta](https://github.com/hanifb1360/ViraChin-Releases/releases/tag/v0.2.0-beta) for:
+Download [ViraChin 0.2.1 Beta](https://github.com/hanifb1360/ViraChin-Releases/releases/tag/v0.2.1-beta) for:
 
 - macOS: universal build for Apple silicon and Intel
 - Windows: 64-bit NSIS installer
+
+Version 0.2.1 fixes the ordering of Persian-digit decimal values such as `۱۴۳,۷` and grouped values that use Unicode Arabic separators.
 
 The older [0.1.0 Beta](https://github.com/hanifb1360/ViraChin-Releases/releases/tag/v0.1.0-beta) remains available as a historical build carrying the former **FarsiFix** name.
 
@@ -36,18 +38,18 @@ Download the installer and its matching `.sha256` file from the same release.
 Put the DMG and checksum in the same folder, open Terminal in that folder, and run:
 
 ```sh
-shasum -a 256 -c ViraChin_0.2.0_universal.dmg.sha256
+shasum -a 256 -c ViraChin_0.2.1_universal.dmg.sha256
 ```
 
-The result must say `ViraChin_0.2.0_universal.dmg: OK`.
+The result must say `ViraChin_0.2.1_universal.dmg: OK`.
 
 ### Windows
 
 Open PowerShell in the download folder and run:
 
 ```powershell
-(Get-FileHash .\ViraChin_0.2.0_x64-setup.exe -Algorithm SHA256).Hash.ToLowerInvariant()
-Get-Content .\ViraChin_0.2.0_x64-setup.exe.sha256
+(Get-FileHash .\ViraChin_0.2.1_x64-setup.exe -Algorithm SHA256).Hash.ToLowerInvariant()
+Get-Content .\ViraChin_0.2.1_x64-setup.exe.sha256
 ```
 
 The two 64-character hashes must be identical. Stop if they differ.
