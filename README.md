@@ -6,7 +6,7 @@ This repository contains the official public downloads and installation guidance
 
 Visit the [ViraChin website](https://hanifb1360.github.io/ViraChin-Releases/) for the product overview, screenshots, and download guidance.
 
-ViraChin is an offline macOS and Windows utility that prepares editable Persian compatibility text for applications with deficient right-to-left layout, with Affinity Designer as its first validation target. It can also create transparent Persian title artwork using local fonts.
+ViraChin is an offline macOS and Windows utility that prepares editable Persian compatibility text for design applications with incomplete right-to-left support. It can also create transparent Persian title artwork using local fonts.
 
 ## Screenshots
 
@@ -18,7 +18,13 @@ ViraChin is an offline macOS and Windows utility that prepares editable Persian 
 
 ![ViraChin transparent-image title designer](screenshots/virachin-transparent-image-mode.png)
 
-## Download the beta
+## Mac App Store
+
+[ViraChin for Mac](https://apps.apple.com/app/id6806981817) is distributed through the Mac App Store. Version 1.0.0 is available now, and version 1.0.1 has been submitted to Apple for review.
+
+The Mac App Store edition is signed, sandboxed, and distributed by Apple. It installs normally without the unidentified-developer exception required by the older direct-download macOS beta.
+
+## Direct-download beta
 
 Download [ViraChin 0.2.2 Beta](https://github.com/hanifb1360/ViraChin-Releases/releases/tag/v0.2.2-beta) for:
 
@@ -86,9 +92,9 @@ Do not disable SmartScreen, Microsoft Defender, Smart App Control, or other Wind
 
 ViraChin has no backend, account, analytics, or network-dependent conversion. Input text remains local and is not persisted. Clipboard access occurs only after the user presses a copy button.
 
-## Important Affinity limitation
+## Editable-text compatibility note
 
-Each prepared visual-order line must fit inside the Affinity text frame without wrapping again. If Affinity moves a fragment to the bottom of the text, return to ViraChin, choose a shorter line length, and copy again.
+Each prepared visual-order line must fit inside the destination text frame without wrapping again. If an application moves a fragment to the bottom of the text, return to ViraChin, choose a shorter line length, and copy again.
 
 ## Artwork
 
