@@ -60,11 +60,15 @@ Get-Content .\ViraChin_0.2.2_x64-setup.exe.sha256
 
 The two 64-character hashes must be identical. Stop if they differ.
 
-## Safe installation
+## Installation
 
-### macOS
+### macOS — Mac App Store (recommended)
 
-The free beta is ad-hoc signed but **not notarized by Apple**. macOS will identify its developer as unverified and block the first normal launch.
+Install [ViraChin from the Mac App Store](https://apps.apple.com/app/id6806981817). This current edition is signed, sandboxed, reviewed, and distributed by Apple. It installs and opens normally; no Gatekeeper workaround or **Open Anyway** step is required.
+
+### macOS — archived direct-download beta 0.2.2
+
+The following instructions apply **only to the older 0.2.2 DMG downloaded from GitHub**, not the Mac App Store edition. That archived beta is ad-hoc signed but not notarized by Apple, so macOS identifies its developer as unverified and blocks its first normal launch.
 
 1. Open the DMG and drag the app into Applications.
 2. In Applications, try to open it once. macOS will block this first attempt.
@@ -76,7 +80,7 @@ Apple documents this process in [Open a Mac app from an unidentified developer](
 
 Do not disable Gatekeeper globally and do not use Terminal commands that remove quarantine protection.
 
-### Windows
+### Windows beta 0.2.2
 
 The Windows beta is currently **unsigned**. Microsoft Defender SmartScreen may show **Windows protected your PC** because the app does not yet have publisher reputation.
 
